@@ -1,0 +1,42 @@
+<Scene>
+	<Transform translation="0.0 0.0 0.0">
+            <Shape DEF='bigCube'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Box size="3 3 3"/>
+            </Shape>
+        </Transform>
+        <Transform translation="6.0 1.0 0.5">
+            <Shape DEF='cone'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Cone/>
+            </Shape>
+        </Transform>
+	<Transform translation="14.0 2.0 -2.0">
+            <Shape DEF='cylinder'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Cylinder/>
+            </Shape>
+        </Transform>
+	<Transform translation="18.0 -2.0 0.0">
+            <Shape DEF='cube'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Box/>
+            </Shape>
+        </Transform>
+	<Transform translation="26.0 0.0 0.0">
+            <Shape DEF='sphere'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Sphere/>
+            </Shape>
+        </Transform>
+</Scene>
