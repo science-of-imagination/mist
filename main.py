@@ -18,7 +18,7 @@ import sys
 if len(sys.argv) > 1:
     singlefile = sys.argv[1]
 else:
-    singlefile = "defaultprimitives.x3d"
+    singlefile = "shapes2.x3d"
 
 multi_scenes = False
 
@@ -153,6 +153,11 @@ def main(filename):
 
     print len(table.relationships)
     print "Calculated", len(table.relevant), "relevant relationships."
+
+    table.fill_vectors()
+    
+    for v in table.vectors:
+        print v
 
     ### Interface
     command = "None"

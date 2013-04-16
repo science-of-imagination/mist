@@ -7,6 +7,7 @@ Created on 2012-03-18
 Sebastien Ouellet sebouel@gmail.com
 '''
 import templates
+import tools
 
 proximity_threshold = 0.90
 good_threshold = 0.75
@@ -19,6 +20,15 @@ class RelationshipsTable:
         self.relationships = []
         self.relevant = []
         self.vectors = []
+        
+    def fill_vectors(self):
+        """ Keeps a vector from the center of two shapes with the shape information, and the distance """
+        for shape in self.shapes:
+            for shape2 in self.shapes:
+                if shape != shape2:
+                    vector = tools.calculate_absolute_distance_center(shape, shape2)
+                    distance = tools.calculate_length(vector)
+                    self.vectors.append((shape,shape2,shape.name, shape2.name, vector,distance,shape.bounding_box[1][1]-shape.bounding_box[0][1]))
     
     def search_table(self, name1 = None, relation = None, name2 = None, mode = 0):
         """ Search the table according to the mode entered:
@@ -82,7 +92,8 @@ class RelationshipsTable:
             else:
                 products.append((found_relationships[i][3]*(distance_relationships[i][3]), found_relationships[i][2]))
             i += 1
-            
+        
+        
         reference_name = max(products)[1]
         
         '''
