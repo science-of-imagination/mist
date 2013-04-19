@@ -42,8 +42,10 @@ def print_relationships(relationships):
 
 def print_relationship(triple):
     """ Prints a given relationship (in a list form) as a string """
-    print triple[0]+" "+triple[1]+" "+triple[2]
-    #print triple[0]+" "+triple[1]+" "+triple[2]+" "+str(triple[3])
+    if len(triple) > 3:
+        print triple[0]+" "+triple[1]+" "+triple[2]+" "+str(triple[3])
+    else:
+        print triple[0]+" "+triple[1]+" "+triple[2]
 
 def compute_without_opposites(shapes, directional_tree, other_relationships_tree, table):
     """ Computes relationships for all shapes but avoids computing the opposite of the relationships (A against B but not B against A) """

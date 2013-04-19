@@ -65,7 +65,7 @@ class RelationshipsTable:
         distance_relationships = (self.search_table(shape1.name, relation, mode = 2))
         for relationship in distance_relationships:
             if relationship[3] > good_threshold:
-                self.relevant.append((shape1.name, relation, relationship[2]))       
+                self.relevant.append((shape1.name, relation, relationship[2], relationship[3]))       
         
     def find_relevant(self, shape1, relation):
         """ Fills a list with the relationships deemed most relevant to the scene """
@@ -106,13 +106,19 @@ class RelationshipsTable:
             return 0
         '''
         
-        self.relevant.append((shape1.name, relation, reference_name))
+        relation_rating = self.search_table(shape1.name, relation, reference_name, 3)[0][3]
+        self.relevant.append((shape1.name, relation, reference_name, relation_rating))
         
         new_relationships = self.search_table(reference_name, "isCloseTo", mode=2)
 
         for relationship in new_relationships:
             if relationship[3] > proximity_threshold and relationship[2] != shape1.name:
-                self.relevant.append((shape1.name, relation, relationship[2]))        
+                relation_rating_other = self.search_table(shape1.name, relation, relationship[2], 3)
+                if len(relation_rating_other) == 0:
+                    relation_rating_other = relation_rating
+                else:
+                    relation_rating_other = relation_rating_other[0][3]
+                self.relevant.append((shape1.name, relation, relationship[2], relation_rating_other))        
         """
         for shape in self.shapes:
             if shape != shape1:

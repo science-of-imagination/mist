@@ -1,0 +1,42 @@
+<Scene>
+	<Transform translation="3 4 -11">
+            <Shape DEF='plane'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Box size="6 0.5 6"/>
+            </Shape>
+        </Transform>
+        <Transform translation="1 8 -1">
+            <Shape DEF='cone'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Cone/>
+            </Shape>
+        </Transform>
+	<Transform translation="0 -11 1">
+            <Shape DEF='cylinder'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Cylinder/>
+            </Shape>
+        </Transform>
+	<Transform translation="-4 2 -4">
+            <Shape DEF='cube'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Box/>
+            </Shape>
+        </Transform>
+	<Transform translation="8 1 10">
+            <Shape DEF='sphere'>
+                <Appearance>
+                    <Material/>
+                </Appearance>
+                <Sphere/>
+            </Shape>
+        </Transform>
+</Scene>
