@@ -65,7 +65,7 @@ def calculate_other_relationships(tree, shape1, shape2, depth=10):
             elif current_tree.state == "isCloseTo":
                 other_relationships.append((shape1.name,current_tree.state,shape2.name, far_test(shape1, shape2, membership=2)))
             else:    
-                other_relationships.append((shape1.name,current_tree.state,shape2.name))
+                other_relationships.append((shape1.name,current_tree.state,shape2.name, 1.0))
         counter += 1
 
     return other_relationships
